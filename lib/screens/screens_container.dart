@@ -1,5 +1,5 @@
-import 'screen_home.dart';
-import 'package:adv_basics/screen_questions.dart';
+import 'package:adv_basics/screens/screen_home.dart';
+import 'package:adv_basics/screens/screen_questions.dart';
 import 'package:flutter/material.dart';
 
 class ScreensContainer extends StatefulWidget {
@@ -10,7 +10,7 @@ class ScreensContainer extends StatefulWidget {
 }
 
 class _ScreensContainerState extends State<ScreensContainer> {
-  var activeScreen = 'screen_home';
+  String activeScreen = 'screen_home';
 
   switchScreen() {
     setState(() {
@@ -25,9 +25,14 @@ class _ScreensContainerState extends State<ScreensContainer> {
     if (activeScreen == 'screen_questions') {
       screenWidget = const ScreenQuestions();
     }
-
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text("Title"),
+          backgroundColor: Color(0xff00072c),
+          foregroundColor: Colors.white,
+        ),
         body: Container(
           decoration: const BoxDecoration(
             gradient: RadialGradient(
